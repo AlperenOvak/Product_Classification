@@ -4,17 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neural Network Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .prediction {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>Neural Network Interface</h1>
-    <form action="/predict" method="post">
-        <label for="description">Enter Product Description:</label><br>
-        <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
-        <input type="submit" value="Predict">
-    </form>
-    {% if prediction %}
-    <h2>Predicted Category:</h2>
-    <p>{{ prediction }}</p>
-    {% endif %}
+    <div class="container">
+        <h1>Neural Network Interface</h1>
+        <form action="/predict" method="post">
+            <label for="description">Enter Product Description:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Type your product description here..."></textarea>
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction %}
+        <div class="prediction">
+            <h2>Predicted Categories:</h2>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Probability</th>
+                </tr>
+                {% for category, probability in prediction %}
+                <tr>
+                    <td>{{ category }}</td>
+                    <td>{{ probability }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+    </div>
 </body>
 </html>
