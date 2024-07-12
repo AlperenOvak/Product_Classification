@@ -35,8 +35,7 @@ To run this project, you need to have Python installed on your system. After clo
 
 ```bash
 pip install -r requirements.txt
-
-Sure, here is a sample `README.md` file for building and running the Docker container for your project:
+```
 
 ```markdown
 ## Prerequisites
