@@ -27,7 +27,10 @@ def is_stop_word(word):
 
 # Function to remove stop words from a sentence
 def remove_stop_words(sentence):
-    load_stop_words("dosyalar/derlemtr2016-10000.txt")
+    try:
+        load_stop_words("/home/ovak/Documents/product_classification/dosyalar/stop_words.txt")
+    except FileNotFoundError:
+        print("Stop words file not found")
     words = sentence.split()
     return " ".join([word for word in words if not is_stop_word(word)])
 
