@@ -86,17 +86,6 @@ In this method, I do **not build any model**. Instead I just tried to implement 
 
 The reason behind using FAISS is that most e-commerce componies use it in their products, such as **Trendyol**
 
-### Libraries Used
-
-- `json`: For parsing JSON files.
-- `pandas`: For data manipulation and analysis.
-- `numpy`: For numerical operations.
-- `matplotlib` and `seaborn`: For data visualization.
-- `nltk`: For natural language processing tasks.
-- `tensorflow`: For building and training machine learning models.
-- `sklearn`: For model evaluation and additional machine learning tasks.
-- `joblib`: For saving and loading models.
-- `os`: For interacting with the file system.
 
 ### Installation
 
