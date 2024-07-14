@@ -28,9 +28,9 @@ def is_stop_word(word):
 # Function to remove stop words from a sentence
 def remove_stop_words(sentence):
     try:
-        load_stop_words("./dosyalar/stop_words.txt")
+        load_stop_words("dosyalar/stop_words.txt")
     except FileNotFoundError:
-        print("Stop words file not found")
+        print("*******************************Stop words file not found")
     words = sentence.split()
     return " ".join([word for word in words if not is_stop_word(word)])
 
