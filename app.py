@@ -12,7 +12,7 @@ from keras_preprocessing.sequence import pad_sequences
 app = Flask(__name__)
 
 # Load Keras model
-model = load_model('v2.3_general_class/model-neural-net.keras')
+model = load_model('v2_multiLabel/model-neural-net.keras')
 df2 = pd.read_csv('cleaned_data.csv')
 tokenizer = Tokenizer(num_words=5000, lower=True) # lower : boolean. Whether to convert the texts to lowercase. , num_words : the maximum number of words to keep, based on word frequency.
 tokenizer.fit_on_texts(df2['description'])
